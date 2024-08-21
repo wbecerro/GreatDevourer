@@ -38,6 +38,14 @@ public class CommandListener implements CommandExecutor {
                 for(String line : GreatDevourer.messages.help) {
                     sender.sendMessage(line.replace("&", "§"));
                 }
+            } else if(args[0].equalsIgnoreCase("reload")) {
+                if(!sender.hasPermission("greatdevourer.command.reload")) {
+                    sender.sendMessage(GreatDevourer.messages.noPermission);
+                    return false;
+                }
+
+                plugin.reloadConfiguration();
+                sender.sendMessage(GreatDevourer.messages.reload);
             } else if(args[0].equalsIgnoreCase("food")) {
                 if(!sender.hasPermission("greatdevourer.command.food")) {
                     sender.sendMessage(GreatDevourer.messages.noPermission);
@@ -50,27 +58,27 @@ public class CommandListener implements CommandExecutor {
                     return false;
                 }
 
-                int foodValue = 0;
-                int saturationValue = 0;
+                int foodValue = Integer.valueOf(args[1]);
+                float saturationValue = Float.valueOf(args[2]);
                 boolean always = GreatDevourer.config.baseAlwaysValue;
                 float time = GreatDevourer.config.baseTimeValue;
                 if(args.length == 5) {
-                    foodValue = Integer.valueOf(args[1]);
-                    saturationValue = Integer.valueOf(args[2]);
                     always = Boolean.valueOf(args[3]);
                     time = Float.valueOf(args[4]);
                 } else if(args.length == 4) {
-                    foodValue = Integer.valueOf(args[1]);
-                    saturationValue = Integer.valueOf(args[2]);
                     always = Boolean.valueOf(args[3]);
-                } else {
-                    foodValue = Integer.valueOf(args[1]);
-                    saturationValue = Integer.valueOf(args[2]);
                 }
 
                 utilities.addFoodToItem(player.getInventory().getItemInMainHand(), foodValue, saturationValue,
                         always, time);
                 player.updateInventory();
+            } else if(args[0].equalsIgnoreCase("get")) {
+                if(!sender.hasPermission("greatdevourer.command.get")) {
+                    sender.sendMessage(GreatDevourer.messages.noPermission);
+                    return false;
+                }
+
+                utilities.showItemNutritionalInfo(player.getInventory().getItemInMainHand(), player);
             }
         }
         return true;

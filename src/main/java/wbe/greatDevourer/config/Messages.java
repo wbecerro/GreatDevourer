@@ -11,6 +11,7 @@ public class Messages {
 
     public String noPermission;
     public String notEnoughArgs;
+    public String reload;
     public String foodAdded;
     public String foodArguments;
     public String effectAdded;
@@ -28,6 +29,7 @@ public class Messages {
 
         noPermission = config.getString("Messages.noPermission").replace("&", "§");
         notEnoughArgs = config.getString("Messages.notEnoughArgs").replace("&", "§");
+        reload = config.getString("Messages.reload").replace("&", "§");
         foodAdded = config.getString("Messages.foodAdded").replace("&", "§");
         foodArguments = config.getString("Messages.foodArguments").replace("&", "§");
         effectAdded = config.getString("Messages.effectAdded").replace("&", "§");

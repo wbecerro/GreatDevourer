@@ -1,6 +1,7 @@
 Messages:
   noPermission: '&b[&cComidas&b] &eNo tienes permiso para hacer esto.'
   notEnoughArgs: '&b[&cComida&b] &eNo has especificado suficientes argumentos.'
+  reload: '&b[&cComida&b] &eEl plugin se ha recargado con éxito.'
   foodAdded: "&b[&cComida&b] &eSe ha añadido valor nutricional a este objeto."
   foodArguments: "&b[&cComida&b] &eEl uso es /greatdevourer food <Valor> <Saturación> [Siempre] [Tiempo]."
   effectAdded: "&b[&cComida&b] &eSe ha añadido un efecto a este objeto."
@@ -8,16 +9,16 @@ Messages:
   soundAdded: "&b[&cComida&b] &eSe ha añadido un sonido a este objeto."
   soundArguments: "&b[&cComida&b] &eEl uso es /greatdevourer sound <Sonido> [Volumen] [Tono]."
   get:
-    - "&b&m================================================"
+    - "&d&m================================================"
     - "&bValor nutricional: &e%value%"
     - "&bSaturación: &e%saturation%"
     - "&bSe puede comer siempre: &e%always%"
     - "&bTiempo para consumir: &e%time%s"
     - "&bEfectos:"
-    - "     - %effect_line%"
+    - "%effect_line%"
     - "&bSonido: %sound%"
-    - "&b&m================================================"
-  effectLine: "&e%effect% %duration%s %level%"
+    - "&d&m================================================"
+  effectLine: "   - &e%effect% %duration%s %level%  Probabilidad: %chance%%"
   noEffects: "&eEste objeto no tiene efectos."
   noSound: "&eEste objeto no tiene sonido."
   help:
@@ -26,6 +27,7 @@ Messages:
     - "&b/gd effect <Efecto> <Duración> <Nivel> &eAñade un efecto al comer el objeto."
     - "&b/gd sound <Sonido> [Volumen] [Tono] &eAñade un sonido al comer el objeto."
     - "&b/gd get &eMuestra los valores nutricionales del objeto, si los tiene."
+    - "&b/gd reload &eRecarga la configuración del plugin."
     - "&b"
     - "&eLeyenda: &b<> &eObligatorio  &b[] &eOpcional"
 
