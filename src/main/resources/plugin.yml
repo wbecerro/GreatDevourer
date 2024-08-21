@@ -1,0 +1,10 @@
+name: GreatDevourer
+version: 1.0
+main: wbe.greatDevourer.GreatDevourer
+api-version: 1.21
+author: wbe
+commands:
+  GreatDevourer:
+    description: GreatDevourer main command
+    aliases: [ gd ]
+    permission: greatdevourer.command
