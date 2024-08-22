@@ -16,8 +16,10 @@ public class Messages {
     public String foodArguments;
     public String effectAdded;
     public String effectArguments;
+    public String noEffectFound;
     public String soundAdded;
     public String soundArguments;
+    public String noSoundFound;
     public List<String> get = new ArrayList<>();
     public String effectLine;
     public String noEffects;
@@ -34,8 +36,10 @@ public class Messages {
         foodArguments = config.getString("Messages.foodArguments").replace("&", "§");
         effectAdded = config.getString("Messages.effectAdded").replace("&", "§");
         effectArguments = config.getString("Messages.effectArguments").replace("&", "§");
+        noEffectFound = config.getString("Messages.noEffectFound").replace("&", "§");
         soundAdded = config.getString("Messages.soundAdded").replace("&", "§");
         soundArguments = config.getString("Messages.soundArguments").replace("&", "§");
+        noSoundFound = config.getString("Messages.noSoundFound").replace("&", "§");
         get = config.getStringList("Messages.get");
         effectLine = config.getString("Messages.effectLine").replace("&", "§");
         noEffects = config.getString("Messages.noEffects").replace("&", "§");

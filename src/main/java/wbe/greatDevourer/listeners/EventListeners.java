@@ -14,6 +14,6 @@ public class EventListeners {
     public void initializeListeners() {
         PluginManager pluginManager = plugin.getServer().getPluginManager();
 
-        //pluginManager.registerEvents(new PlayerDropItemListeners(plugin), plugin);
+        pluginManager.registerEvents(new PlayerItemConsumeListeners(plugin), plugin);
     }
 }

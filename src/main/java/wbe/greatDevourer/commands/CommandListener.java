@@ -72,13 +72,65 @@ public class CommandListener implements CommandExecutor {
                 utilities.addFoodToItem(player.getInventory().getItemInMainHand(), foodValue, saturationValue,
                         always, time);
                 player.updateInventory();
-            } else if(args[0].equalsIgnoreCase("get")) {
-                if(!sender.hasPermission("greatdevourer.command.get")) {
+            } else if(args[0].equalsIgnoreCase("show")) {
+                if(!sender.hasPermission("greatdevourer.command.show")) {
                     sender.sendMessage(GreatDevourer.messages.noPermission);
                     return false;
                 }
 
                 utilities.showItemNutritionalInfo(player.getInventory().getItemInMainHand(), player);
+            } else if(args[0].equalsIgnoreCase("effect")) {
+                if(!sender.hasPermission("greatdevourer.command.effect")) {
+                    sender.sendMessage(GreatDevourer.messages.noPermission);
+                    return false;
+                }
+
+                if(args.length < 4) {
+                    sender.sendMessage(GreatDevourer.messages.notEnoughArgs);
+                    sender.sendMessage(GreatDevourer.messages.effectArguments);
+                    return false;
+                }
+
+                float effectChance = GreatDevourer.config.baseEffectChanceValue;
+                if(args.length == 5) {
+                    effectChance = Float.valueOf(args[4]);
+                }
+
+                boolean added = utilities.addFoodEffect(player.getInventory().getItemInMainHand(), args[1],
+                        Integer.valueOf(args[2]), Integer.valueOf(args[3]), effectChance);
+                if(added) {
+                    player.sendMessage(GreatDevourer.messages.effectAdded);
+                } else {
+                    player.sendMessage(GreatDevourer.messages.noEffectFound.replace("%effect%", args[1]));
+                }
+            } else if(args[0].equalsIgnoreCase("sound")) {
+                if(!sender.hasPermission("greatdevourer.command.sound")) {
+                    sender.sendMessage(GreatDevourer.messages.noPermission);
+                    return false;
+                }
+
+                if(args.length < 2) {
+                    sender.sendMessage(GreatDevourer.messages.notEnoughArgs);
+                    sender.sendMessage(GreatDevourer.messages.soundArguments);
+                    return false;
+                }
+
+                float volume = GreatDevourer.config.baseVolumeValue;
+                float pitch = GreatDevourer.config.basePitchValue;
+                if(args.length == 4) {
+                    volume = Float.valueOf(args[2]);
+                    pitch = Float.valueOf(args[3]);
+                } else if(args.length == 3) {
+                    volume = Float.valueOf(args[2]);
+                }
+
+                boolean added = utilities.addFoodSound(player.getInventory().getItemInMainHand(),
+                        args[1], volume, pitch);
+                if(added) {
+                    player.sendMessage(GreatDevourer.messages.soundAdded);
+                } else {
+                    player.sendMessage(GreatDevourer.messages.noSoundFound.replace("%sound%", args[1]));
+                }
             }
         }
         return true;

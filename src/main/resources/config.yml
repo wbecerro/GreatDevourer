@@ -5,9 +5,11 @@ Messages:
   foodAdded: "&b[&cComida&b] &eSe ha añadido valor nutricional a este objeto."
   foodArguments: "&b[&cComida&b] &eEl uso es /greatdevourer food <Valor> <Saturación> [Siempre] [Tiempo]."
   effectAdded: "&b[&cComida&b] &eSe ha añadido un efecto a este objeto."
-  effectArguments: "&b[&cComida&b] &eEl uso es /greatdevourer effect <Efecto> <Duración> <Nivel>."
+  effectArguments: "&b[&cComida&b] &eEl uso es /greatdevourer effect <Efecto> <Duración> <Nivel> [Probabilidad]."
+  noEffectFound: "&b[&cComida&b] &eNo existe ningún efecto llamado %effect%."
   soundAdded: "&b[&cComida&b] &eSe ha añadido un sonido a este objeto."
   soundArguments: "&b[&cComida&b] &eEl uso es /greatdevourer sound <Sonido> [Volumen] [Tono]."
+  noSoundFound: "&b[&cComida&b] &eNo existe ningún sonido llamado %sound%."
   get:
     - "&d&m================================================"
     - "&bValor nutricional: &e%value%"
@@ -16,17 +18,17 @@ Messages:
     - "&bTiempo para consumir: &e%time%s"
     - "&bEfectos:"
     - "%effect_line%"
-    - "&bSonido: %sound%"
+    - "&bSonido: &e%sound%"
     - "&d&m================================================"
-  effectLine: "   - &e%effect% %duration%s %level%  Probabilidad: %chance%%"
+  effectLine: "   - &e%effect% %level% %duration%s &b- Probabilidad: &e%chance%%"
   noEffects: "&eEste objeto no tiene efectos."
   noSound: "&eEste objeto no tiene sonido."
   help:
     - "&b/gd &eMuestra esta página."
     - "&b/gd food <Valor> <Saturación> [Siempre] [Tiempo] &eAñade valor nutricional a un objeto."
-    - "&b/gd effect <Efecto> <Duración> <Nivel> &eAñade un efecto al comer el objeto."
+    - "&b/gd effect <Efecto> <Duración> <Nivel> [Probabilidad] &eAñade un efecto al comer el objeto."
     - "&b/gd sound <Sonido> [Volumen] [Tono] &eAñade un sonido al comer el objeto."
-    - "&b/gd get &eMuestra los valores nutricionales del objeto, si los tiene."
+    - "&b/gd show &eMuestra los valores nutricionales del objeto, si los tiene."
     - "&b/gd reload &eRecarga la configuración del plugin."
     - "&b"
     - "&eLeyenda: &b<> &eObligatorio  &b[] &eOpcional"
@@ -34,6 +36,7 @@ Messages:
 Config:
   baseAlwaysValue: false
   baseTimeValue: 1.6
+  baseEffectChanceValue: 1
   baseVolumeValue: 1
   basePitchValue: 1
 
